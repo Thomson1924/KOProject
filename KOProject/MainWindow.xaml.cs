@@ -25,6 +25,7 @@ namespace KOProject
             InitializeComponent();
             var testowa = 1;
             var testowaa = 2;
+            var testowa3 = 3;
         }
     }
 }
