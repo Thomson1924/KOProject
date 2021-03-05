@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KOProject"
         mc:Ignorable="d"
-        Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800" ResizeMode="CanMinimize">
     <Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45">
             <TextBox x:Name="tbSearch" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
             <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
         </Grid>
+        <Grid HorizontalAlignment="Left" MinHeight="363" Margin="10,46,0,0" VerticalAlignment="Top" Height="338" MinWidth="296" >
+            <ListBox x:Name="lb_Auctions" HorizontalAlignment="Center" Width="296" Margin="0,0,0,10"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="363" Margin="311,46,0,0" VerticalAlignment="Top" Width="471"/>
     </Grid>
 </Window>
