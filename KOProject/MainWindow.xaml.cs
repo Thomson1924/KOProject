@@ -23,8 +23,6 @@ namespace KOProject
         public MainWindow()
         {
             InitializeComponent();
-            var testowa = 1;
-            var testowaa = 2;
         }
     }
 }
