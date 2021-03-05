@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KOProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45">
+            <TextBox x:Name="tbSearch" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
+            <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+        </Grid>
     </Grid>
 </Window>
