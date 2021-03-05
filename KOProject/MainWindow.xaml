@@ -12,15 +12,16 @@
             <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
         </Grid>
         <Grid HorizontalAlignment="Left" MinHeight="363" Margin="10,46,0,0" VerticalAlignment="Top" Height="338" MinWidth="296" >
-            <ListBox x:Name="lb_Auctions" HorizontalAlignment="Center" Width="296" Margin="0,0,0,10"/>
+            <ListBox x:Name="lb_Auctions" HorizontalAlignment="Center" Width="296" Margin="0,37,0,10"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Znalezione Produkty:" VerticalAlignment="Top" Width="181" Height="22" FontSize="16"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="363" Margin="313,46,0,0" VerticalAlignment="Top" Width="471">
-            <TextBlock x:Name="tb_AuctionTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Tutaj będzie tytuł aukcji" VerticalAlignment="Top" Height="35" Width="451" FontSize="26" TextAlignment="Center"/>
-            <Image x:Name="img_AuctionImage" HorizontalAlignment="Left" Height="222" Margin="235,47,0,0" VerticalAlignment="Top" Width="226" Source="logo.png" Stretch="Fill" Cursor="Hand"/>
-            <TextBlock x:Name="tb_PriceText" HorizontalAlignment="Left" Margin="235,300,0,0" TextWrapping="Wrap" Text="Cena: " VerticalAlignment="Top" Width="67" TextAlignment="Right"/>
-            <TextBlock x:Name="tb_Price" HorizontalAlignment="Left" Margin="307,274,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="154" FontSize="36"/>
-            <Button x:Name="bt_GoToStore" Content="Przejdź!" HorizontalAlignment="Left" Margin="379,322,0,0" VerticalAlignment="Top" Width="82" Height="35"/>
-            <TextBlock x:Name="tb_AuctionDescription" HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="306" Width="220" FontSize="16" TextAlignment="Justify"/>
+            <TextBlock x:Name="tb_AuctionTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Tutaj będzie tytuł aukcji" VerticalAlignment="Top" Height="35" Width="451" FontSize="26" TextAlignment="Center" TextDecorations="Underline"/>
+            <Image x:Name="img_AuctionImage" HorizontalAlignment="Left" Height="259" Margin="235,47,0,0" VerticalAlignment="Top" Width="226" Source="logo.png" Stretch="Fill" Cursor="Hand"/>
+            <TextBlock x:Name="tb_PriceText" HorizontalAlignment="Left" Margin="235,332,0,0" TextWrapping="Wrap" Text="Cena: " VerticalAlignment="Top" Width="46" TextAlignment="Right" FontSize="16"/>
+            <TextBlock x:Name="tb_Price" HorizontalAlignment="Left" Margin="286,311,0,0" TextWrapping="Wrap" Text="Cena,-" VerticalAlignment="Top" Height="43" Width="108" FontSize="36"/>
+            <Button x:Name="bt_GoToStore" Content="Przejdź!" HorizontalAlignment="Left" Margin="399,326,0,0" VerticalAlignment="Top" Width="62" Height="27"/>
+            <TextBlock x:Name="tb_AuctionDescription" HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="Tutaj będzie opis produktu" VerticalAlignment="Top" Height="306" Width="220" FontSize="16" TextAlignment="Justify"/>
         </Grid>
     </Grid>
 </Window>
