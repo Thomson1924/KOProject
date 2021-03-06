@@ -21,10 +21,10 @@ namespace AgilityPack
             var htmlDoc = web.Load(listSites);
 
             var name = htmlDoc.DocumentNode.SelectSingleNode("html/body/section/div/div/section/div/div/a/div/div/h2");// Wyciaganie nazwy single 
-            var price = htmlDoc.DocumentNode.SelectSingleNode("html/body/section/div/div/section/div/div/a/div/div/div/strong/text"); // Wyciaanie ceny single
+            var price = htmlDoc.DocumentNode.SelectSingleNode("html/body/section/div/div/section/div/div/a/div/div/div/meta"); // Wyciaanie ceny single
             //var img = htmlDoc.DocumentNode.SelectSingleNode("html/body/section/div/div/a/div/img"); Dodać jeszcze source.
 
-            Console.WriteLine(name.InnerHtml + "/n" + price.InnerHtml + "/n" + /* img.InnerHtml + */  "/n" + );
+            Console.WriteLine(name.InnerHtml + "/n" + price.OuterHtml  );
             
            /* foreach (var item in listSites)
             {
