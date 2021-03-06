@@ -13,8 +13,8 @@ namespace AgilityPack
     {
         static void Main(string[] args)
         {
-            //string typedThing = "Iphone";
-            var listSites = /*ScrapListFromPage*/ @"http://www.nokaut.pl/produkt:iphone";
+            string typedThing = Console.ReadLine();
+            var listSites = /*ScrapListFromPage*/ $"http://www.nokaut.pl/produkt:{typedThing}";
 
             HtmlWeb web = new HtmlWeb();
 
