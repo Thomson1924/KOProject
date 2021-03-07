@@ -12,13 +12,41 @@ namespace AgilityPack
     class Program
     {
         static void Main(string[] args)
-        { 
-           Console.WriteLine("Co chcesz znaleźć taniej ?");
+        {
+            Console.WriteLine("Co chcesz znaleźć taniej ?");
             string typedThing = Console.ReadLine();
-           
-            var listSites = ScrapList($"http://www.nokaut.pl/produkt:{typedThing}");
+            Console.WriteLine("Z jakiej kategorii to jest ?");
+            /*
+            Typy kategorii typedCategory
+            biznes
+            delikatesy
+            dla dzieci
+            dom i ogrod
+            erotyka
+            fotografia i optyka
+            gry i konsole
+            inne
+            komputery
+            kosmetyki
+            ksiazki
+            moda i styl
+            motoryzacja
+            muzyka
+            narzedzia
+            prezenty
+            sport i hobby
+            sprzet agd
+            sprzet rtv
+            telefony i akcesoria
+            zdrowie
+             */
+            string typedCategory = Console.ReadLine();
 
-           Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing);
+            // Console.WriteLine("Jak posortować ci wyszukiwanie ?" + "\n" + "Nt - Najtańsze " + "\n" + " Nd - Najdrożej");
+            
+            var listSites = ScrapList($"http://www.nokaut.pl/{typedCategory}/produkt:{typedThing}");
+
+           Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing + "W kategorii : " + typedCategory + "\n");
 
 
             foreach (var item in listSites)
@@ -61,24 +89,11 @@ namespace AgilityPack
             }
             return listSites;
         }
-        public static ScrappedData ScrapWithDetails(string html)
-        {
-            HtmlWeb web = new HtmlWeb();
-            var htmlDoc = web.Load(html);
-            var node = htmlDoc.DocumentNode.SelectSingleNode($"//script");
-            try
-            {
-                var elementDetails = JsonConvert.DeserializeObject<ScrappedData>(node.InnerText);
-                return elementDetails;
-            }
-            catch (Exception)
-            {
-                return new ScrappedData();
-            }
+
         }
     }
         
       
        
-    }
+    
 
