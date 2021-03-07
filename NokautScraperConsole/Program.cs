@@ -12,76 +12,53 @@ namespace AgilityPack
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
+            Console.WriteLine("Co chcesz znaleźć taniej ?");
             string typedThing = Console.ReadLine();
-            var listSites = /*ScrapListFromPage*/ $"http://www.nokaut.pl/produkt:{typedThing}";
+           
+            var listSites = ScrapList($"http://www.nokaut.pl/produkt:{typedThing}");
 
-            HtmlWeb web = new HtmlWeb();
+            Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing);
 
-            var htmlDoc = web.Load(listSites);
 
-            var name = htmlDoc.DocumentNode.SelectSingleNode("html/body/section/div/div/section/div/div/a/div/div/h2");// Wyciaganie nazwy single 
-            var price = htmlDoc.DocumentNode.SelectSingleNode("html/body/section/div/div/section/div/div/a/div/div/div/meta"); // Wyciaanie ceny single
-            //var img = htmlDoc.DocumentNode.SelectSingleNode("html/body/section/div/div/a/div/img"); Dodać jeszcze source.
-
-            Console.WriteLine(name.InnerHtml + "/n" + price.OuterHtml  );
-            
-           /* foreach (var item in listSites)
+            foreach (var item in listSites)
             {
-                Console.WriteLine("{0} {1} {2} {3} {4}", item.Name, item.Link, item.Image, item.Price, item.Rate);
+                Console.WriteLine("{0} {1} ", item.Link , item.Name);
             }
-            Console.WriteLine($"{listSites.Count()} elementów"); */
+            Console.WriteLine($"{listSites.Count()} elementów");
             Console.ReadKey();
         }
-        
-        /*public static List<ListSite> ScrapListFromPage(string html)
+
+        public static List<ListSite> ScrapList(string html)
         {
             HtmlWeb web = new HtmlWeb();
             List<ListSite> listSites = new List<ListSite>();
             var htmlDoc = web.Load(html);
             try
             {
-                foreach (HtmlNode link in htmlDoc.DocumentNode.SelectNodes("//div/a/")
+                foreach (HtmlNode link in htmlDoc.DocumentNode.SelectNodes("//html/body/section/div/div/section")
                     .Where(x => x.GetAttributeValue("class", string.Empty)
-                    .Equals("product-box"))
+                    .Equals("ProductList"))
                     .ToList())
                 {
-
                     ListSite element = new ListSite();
-                    element.Link = link.SelectSingleNode("div/div/section/div/div/a")
-                                        .GetAttributeValue("href", string.Empty);
-                    element.Name = link.SelectSingleNode("div/div/section/div/div/a/div/div/h2")
-                                        .InnerText;
-
-                   if (link.SelectSingleNode("div/div/section/div/div/a/div/img")
-                            .GetAttributeValue("src", string.Empty)
-                            .Equals("/content/img/icons/pix-empty.png"))
-                    {
-                        element.Image = link.SelectSingleNode("")
-                                            .GetAttributeValue("data-original", string.Empty);
-                    }
-                    else
-                    {
-                        element.Image = link.SelectSingleNode("div/a/img")
-                                            .GetAttributeValue("src", string.Empty);
-                    }
-
-                    element.Price = link.SelectNodes("div/div")
-                                        .Where(x => x.GetAttributeValue("class", string.Empty)
-                                        .Equals("cat-prod-row__price"))
-                                        .First()
-                                        .SelectSingleNode("a//span/span")
-                                        .InnerText;
+                    element.Link = link.SelectSingleNode("html/body/section/div/div/section/div/div/a")
+                                    .GetAttributeValue("href", string.Empty);
+                    element.Name = link.SelectSingleNode("html/body/section/div/div/section/div/div/a/div/div/h2")
+                                    .InnerText;
 
                     listSites.Add(element);
                 }
             }
             catch (Exception)
             {
+                
             }
-            
             return listSites;
-        }*/
+        }
+        }
+        
+      
        
     }
-}
+
