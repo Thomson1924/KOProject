@@ -1,11 +1,7 @@
 ﻿using HtmlAgilityPack;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AgilityPack
 {
@@ -13,51 +9,65 @@ namespace AgilityPack
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Co chcesz znaleźć taniej ?");
-            string typedThing = Console.ReadLine();
-            Console.WriteLine("Z jakiej kategorii to jest ?");
-            /*
-            Typy kategorii typedCategory
-            biznes
-            delikatesy
-            dla dzieci
-            dom i ogrod
-            erotyka
-            fotografia i optyka
-            gry i konsole
-            inne
-            komputery
-            kosmetyki
-            ksiazki
-            moda i styl
-            motoryzacja
-            muzyka
-            narzedzia
-            prezenty
-            sport i hobby
-            sprzet agd
-            sprzet rtv
-            telefony i akcesoria
-            zdrowie
-             */
-            string typedCategory = Console.ReadLine();
 
-            // Console.WriteLine("Jak posortować ci wyszukiwanie ?" + "\n" + "Nt - Najtańsze " + "\n" + " Nd - Najdrożej");
-            
-            var listSites = ScrapList($"http://www.nokaut.pl/{typedCategory}/produkt:{typedThing}");
-
-           Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing + "W kategorii : " + typedCategory + "\n");
-
-
-            foreach (var item in listSites)
+            var lists = new List<ListSite>
             {
-                Console.WriteLine("{0} \n {1} \n {2} \n {3} \n ", item.Name , item.Price ,item.Link ,item.Image);
+                new ListSite {ListSiteID = 1, Image="", Link="", Name="Iphone", Price = "" }
+            };
+
+            using (ListContext context = new ListContext())
+            {
+                context.ListSites.AddRange(lists);
+                context.SaveChanges();
             }
-            Console.WriteLine($"{listSites.Count()} elementów");
+
+
+            /* Console.WriteLine("Co chcesz znaleźć taniej ?");
+             string typedThing = Console.ReadLine();
+             Console.WriteLine("Z jakiej kategorii to jest ?");
+             /*
+             Typy kategorii typedCategory
+             biznes
+             delikatesy
+             dla dzieci
+             dom i ogrod
+             erotyka
+             fotografia i optyka
+             gry i konsole
+             inne
+             komputery
+             kosmetyki
+             ksiazki
+             moda i styl
+             motoryzacja
+             muzyka
+             narzedzia
+             prezenty
+             sport i hobby
+             sprzet agd
+             sprzet rtv
+             telefony i akcesoria
+             zdrowie
+              */
+            /* string typedCategory = Console.ReadLine();
+
+             // Console.WriteLine("Jak posortować ci wyszukiwanie ?" + "\n" + "Nt - Najtańsze " + "\n" + " Nd - Najdrożej");
+
+             var listSites = ScrapList($"http://www.nokaut.pl/{typedCategory}/produkt:{typedThing}");
+
+            Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing + "W kategorii : " + typedCategory + "\n");
+
+
+             foreach (var item in listSites)
+             {
+                 Console.WriteLine("{0} \n {1} \n {2} \n {3} \n ", item.Name , item.Price ,item.Link ,item.Image);
+             }
+             Console.WriteLine($"{listSites.Count()} elementów");*/
+            Console.WriteLine("zrobione");    
             Console.ReadKey();
         }
 
-        public static List<ListSite> ScrapList(string html)
+       /* public static List<ListSite> ScrapList(string html)
         {
             HtmlWeb web = new HtmlWeb();
             List<ListSite> listSites = new List<ListSite>();
@@ -74,13 +84,8 @@ namespace AgilityPack
                     element.Image = link.SelectSingleNode("a/div/img").GetAttributeValue("src", string.Empty);
                     element.Name = link.SelectSingleNode("a/div/img").GetAttributeValue("alt", string.Empty);
                     element.Price = link.SelectSingleNode("a/div/div/div/meta").GetAttributeValue("content", string.Empty);
-                                  
-                     
-
-
-
-                     listSites.Add(element);
-                    
+ 
+                     listSites.Add(element);                
                 }
             }
             catch (Exception)
@@ -88,10 +93,10 @@ namespace AgilityPack
                 
             }
             return listSites;
-        }
+        }*/
 
-        }
     }
+}
         
       
        
