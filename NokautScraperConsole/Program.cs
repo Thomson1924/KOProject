@@ -56,7 +56,7 @@ namespace AgilityPack
              var listSites = ScrapList($"http://www.nokaut.pl/{typedCategory}/produkt:{typedThing}");
 
             //Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing + "W kategorii : " + typedCategory + "\n");
-            //coś
+            
             foreach (var item in listSites)
              {
                 var products = new List<ListSite>
