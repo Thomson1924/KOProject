@@ -61,12 +61,25 @@
   <ItemGroup>
     <Compile Include="ListContext.cs" />
     <Compile Include="ListSite.cs" />
+    <Compile Include="Migrations\202103100911197_Initial.cs" />
+    <Compile Include="Migrations\202103100911197_Initial.designer.cs">
+      <DependentUpon>202103100911197_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103100911197_Initial.resx">
+      <DependentUpon>202103100911197_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Create_DataBase.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

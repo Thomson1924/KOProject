@@ -5,10 +5,11 @@ namespace AgilityPack
     public class ListContext : DbContext
     {
         public DbSet<ListSite> ListSites { get; set; }
-        public ListContext()
-            : base("DefaultConnection")
+
+        public ListContext() 
+            :base("Produkty")
         {
-            Database.Initialize(false);
+
         }
     }
 }

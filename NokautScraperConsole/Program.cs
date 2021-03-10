@@ -10,19 +10,19 @@ namespace AgilityPack
         static void Main(string[] args)
         {
 
-            var lists = new List<ListSite>
+            /*var lists = new List<ListSite>
             {
-                new ListSite {ListSiteID = 1, Image="", Link="", Name="Iphone", Price = "" }
+                new ListSite { Image="", Link="", Name="Iphone 11", Price = "" }
             };
 
             using (ListContext context = new ListContext())
             {
                 context.ListSites.AddRange(lists);
                 context.SaveChanges();
-            }
+            }*/
 
 
-            /* Console.WriteLine("Co chcesz znaleźć taniej ?");
+             Console.WriteLine("Co chcesz znaleźć taniej ?");
              string typedThing = Console.ReadLine();
              Console.WriteLine("Z jakiej kategorii to jest ?");
              /*
@@ -49,25 +49,37 @@ namespace AgilityPack
              telefony i akcesoria
              zdrowie
               */
-            /* string typedCategory = Console.ReadLine();
+            string typedCategory = Console.ReadLine();
 
-             // Console.WriteLine("Jak posortować ci wyszukiwanie ?" + "\n" + "Nt - Najtańsze " + "\n" + " Nd - Najdrożej");
+             //Console.WriteLine("Jak posortować ci wyszukiwanie ?" + "\n" + "Nt - Najtańsze " + "\n" + " Nd - Najdrożej");
 
              var listSites = ScrapList($"http://www.nokaut.pl/{typedCategory}/produkt:{typedThing}");
 
-            Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing + "W kategorii : " + typedCategory + "\n");
-
-
-             foreach (var item in listSites)
+            //Console.WriteLine("Wyniki wyszukiwania dla : " + typedThing + "W kategorii : " + typedCategory + "\n");
+            //coś
+            foreach (var item in listSites)
              {
-                 Console.WriteLine("{0} \n {1} \n {2} \n {3} \n ", item.Name , item.Price ,item.Link ,item.Image);
-             }
-             Console.WriteLine($"{listSites.Count()} elementów");*/
+                var products = new List<ListSite>
+            {
+                new ListSite { Image=item.Image, Link=item.Link, Name=item.Name, Price =item.Price }
+            };
+
+                using (ListContext context = new ListContext())
+                {
+                    context.ListSites.AddRange(products);
+                    context.SaveChanges();
+                }
+
+                //Console.WriteLine("{0} \n {1} \n {2} \n {3} \n ", item.Name , item.Price ,item.Link ,item.Image);
+            }
+
+           
+            //Console.WriteLine($"{listSites.Count()} elementów");
             Console.WriteLine("zrobione");    
             Console.ReadKey();
         }
 
-       /* public static List<ListSite> ScrapList(string html)
+        public static List<ListSite> ScrapList(string html)
         {
             HtmlWeb web = new HtmlWeb();
             List<ListSite> listSites = new List<ListSite>();
@@ -93,7 +105,7 @@ namespace AgilityPack
                 
             }
             return listSites;
-        }*/
+        }
 
     }
 }

@@ -1,0 +1,8 @@
+﻿Server = (localdb)\MSSQLLocalDB
+
+Commands:
+enable-migrations
+add-migration Initial
+
+//tylko to !
+update-database
