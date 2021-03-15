@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HtmlAgilityPack;
 
 namespace KOProject
 {
@@ -22,6 +23,8 @@ namespace KOProject
     {
         public MainWindow()
         {
+
+            var ListSites = ScrapList($"http://www.nokaut.pl/{typedCategory}/produkt:{typedThing}");
             InitializeComponent();
         }
     }
