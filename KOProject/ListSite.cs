@@ -8,9 +8,5 @@
         public string Image { get; set; }
         public string Price { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Name}, Price: {Price} ";
-        }
     }
 }

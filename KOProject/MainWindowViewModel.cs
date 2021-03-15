@@ -15,6 +15,7 @@ namespace KOProject
     {
 
         public ICommand SearchCommand { get; set; }
+        public ICommand GoToStore { get; set; }
         private ObservableCollection<ListSite> products;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,6 +41,7 @@ namespace KOProject
         public MainWindowViewModel()
         {
             SearchCommand = new SearchProductCommand(this);
+            GoToStore = new GoToStoreCommand(this);
         }
         public void ScrapList(string html)
         {
@@ -73,6 +75,11 @@ namespace KOProject
         private void PropertyChange(string arg)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(arg));
+        }
+
+        public void Store (string link)
+        {
+
         }
     }
 }
