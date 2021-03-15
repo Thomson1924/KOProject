@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\SearchProductCommand.cs" />
+    <Compile Include="ListSite.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="SearchEngine.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

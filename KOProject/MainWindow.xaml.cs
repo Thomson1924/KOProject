@@ -14,18 +14,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HtmlAgilityPack;
 
+
 namespace KOProject
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-
-            var ListSites = ScrapList($"http://www.nokaut.pl/{typedCategory}/produkt:{typedThing}");
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
     }
 }
