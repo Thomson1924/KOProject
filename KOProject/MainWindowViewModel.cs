@@ -72,6 +72,24 @@ namespace KOProject
             
             
         }
+
+        public void SaveToDataBase(ObservableCollection<ListSite> listSites)
+        {
+            foreach (var item in listSites)
+            {
+                var products = new List<ListSite>
+                {
+                    new ListSite { Image=item.Image, Link=item.Link, Name=item.Name, Price =item.Price }
+                };
+
+                    using (ListSiteContext context = new ListSiteContext())
+                    {
+                        context.ListSites.AddRange(products);
+                        context.SaveChanges();
+                    }
+            }
+        }
+
         private void PropertyChange(string arg)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(arg));
