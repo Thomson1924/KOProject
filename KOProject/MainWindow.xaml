@@ -11,25 +11,30 @@
             <TextBox Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
             <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" MinHeight="363" Margin="10,46,0,0" VerticalAlignment="Top" >
-            <ListBox ItemsSource="{Binding Products}" HorizontalAlignment="Center" Margin="0,37,10,10" Width="762">
+        <Grid MinHeight="363" Margin="10,46,10,10" >
+            <ListBox ItemsSource="{Binding Products}" Margin="0,37,0,0" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.3*"/>
-                                <ColumnDefinition Width="0.5*"/>
-                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+
+                            </Grid.RowDefinitions>
                             <TextBlock Text="{Binding Name}"/>
                             <Image Source="{Binding Image}" Grid.Column="1"/>
                             <Button  Content="Przejdź!"
-                                     HorizontalAlignment="Left" 
-                                     VerticalAlignment="Top" 
+                                     HorizontalAlignment="Right" 
+                                     VerticalAlignment="Bottom" 
                                      Command="{Binding Path=DataContext.GoToStore , RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
-                                     CommandParameter="{Binding Link}" 
+                                     CommandParameter="{Binding Link}"
+                                     Width="75"
+                                     Height="25"
                                      Grid.Column="2"/>
-                            <TextBlock Text="{Binding Price}" Grid.Column="0" />
+                            <TextBlock Text="{Binding Price}" Grid.Column="1" FontSize="16"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
