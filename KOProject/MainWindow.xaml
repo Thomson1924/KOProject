@@ -11,7 +11,7 @@
             <TextBox Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
             <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" MinHeight="363" Margin="10,46,0,0" VerticalAlignment="Top" Height="338" MinWidth="296" Width="772" >
+        <Grid HorizontalAlignment="Left" MinHeight="363" Margin="10,46,0,0" VerticalAlignment="Top" >
             <ListBox ItemsSource="{Binding Products}" HorizontalAlignment="Center" Margin="0,37,10,10" Width="762">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
