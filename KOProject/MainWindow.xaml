@@ -29,6 +29,7 @@
                                      Command="{Binding Path=DataContext.GoToStore , RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
                                      CommandParameter="{Binding Link}" 
                                      Grid.Column="2"/>
+                            <TextBlock Text="{Binding Price}" Grid.Column="0" />
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
