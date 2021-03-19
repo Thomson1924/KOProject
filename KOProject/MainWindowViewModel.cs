@@ -29,6 +29,16 @@ namespace KOProject
                 PropertyChange(nameof(KeyWord));
             }
         }
+        private string category;
+
+        public string Category
+        {
+            get { return category; }
+            set { category = value;
+                PropertyChange(nameof(Category));
+            }
+        }
+
 
 
         public ObservableCollection<ListSite> Products
