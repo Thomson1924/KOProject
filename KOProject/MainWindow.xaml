@@ -8,11 +8,35 @@
         Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45">
-            <TextBox Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
-            <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
+            <TextBox x:Name="tb_SearchBox" Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
+            <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="372,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
+            <ComboBox HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Width="152" Height="25">
+                <ComboBoxItem>Biznes</ComboBoxItem>
+                <ComboBoxItem>Delikatesy</ComboBoxItem>
+                <ComboBoxItem>Dla Dzieci</ComboBoxItem>
+                <ComboBoxItem>Dom i Ogród</ComboBoxItem>
+                <ComboBoxItem>Erotyka</ComboBoxItem>
+                <ComboBoxItem>Filmy</ComboBoxItem>
+                <ComboBoxItem>Fotografia i optyka</ComboBoxItem>
+                <ComboBoxItem>Gry i Konsole</ComboBoxItem>
+                <ComboBoxItem>Inne</ComboBoxItem>
+                <ComboBoxItem>Komputery</ComboBoxItem>
+                <ComboBoxItem>Kosmetyki</ComboBoxItem>
+                <ComboBoxItem>Książki</ComboBoxItem>
+                <ComboBoxItem>Moda i styl</ComboBoxItem>
+                <ComboBoxItem>Motoryzacja</ComboBoxItem>
+                <ComboBoxItem>Muzyka</ComboBoxItem>
+                <ComboBoxItem>Narzędzia</ComboBoxItem>
+                <ComboBoxItem>Prezenty</ComboBoxItem>
+                <ComboBoxItem>Sport i hobby</ComboBoxItem>
+                <ComboBoxItem>Sprzęt AGD</ComboBoxItem>
+                <ComboBoxItem>Sprzęt RTV</ComboBoxItem>
+                <ComboBoxItem>Telefony i akcesoria</ComboBoxItem>
+                <ComboBoxItem>Zdrowie</ComboBoxItem>
+            </ComboBox>
         </Grid>
-        <Grid HorizontalAlignment="Left" MinHeight="363" Margin="10,46,0,0" VerticalAlignment="Top" >
-            <ListBox ItemsSource="{Binding Products}" HorizontalAlignment="Center" Margin="0,37,10,10" Width="762">
+        <Grid MinHeight="363" Margin="10,46,10,10">
+            <ListBox ItemsSource="{Binding Products}" Margin="0,37,0,0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
