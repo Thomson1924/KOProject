@@ -14,7 +14,7 @@ namespace KOProject
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-
+       
         public ICommand SearchCommand { get; set; }
         public ICommand GoToStore { get; set; }
         private ObservableCollection<ListSite> products;
