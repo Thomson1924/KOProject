@@ -7,13 +7,12 @@
         mc:Ignorable="d"
         
         Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
-    <Grid >
-        
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45" >
-            <TextBox  x:Name="tb_SearchBox" Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
-            <Button  x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="409,20,0,0" VerticalAlignment="Top" Width="100" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
-            <ComboBox   HorizontalAlignment="Left" Margin="215,10,0,0" Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="152" Height="35">
-                <ComboBoxItem>.</ComboBoxItem>
+    <Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45">
+            <TextBox x:Name="tb_SearchBox" Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
+            <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="372,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
+            <ComboBox HorizontalAlignment="Left" Margin="215,10,0,0" Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="152" Height="25">
+                <ComboBoxItem Height="20">              </ComboBoxItem>
                 <ComboBoxItem>Biznes</ComboBoxItem>
                 <ComboBoxItem>Delikatesy</ComboBoxItem>
                 <ComboBoxItem>Dla Dzieci</ComboBoxItem>
