@@ -25,7 +25,9 @@ namespace KOProject
         public string KeyWord
         {
             get { return keyWord; }
-            set { keyWord = value;
+            set
+            {
+                keyWord = value;
                 PropertyChange(nameof(KeyWord));
             }
         }
@@ -34,7 +36,9 @@ namespace KOProject
         public string Category
         {
             get { return category; }
-            set { category = value;
+            set
+            {
+                category = value;
                 PropertyChange(nameof(Category));
             }
         }
@@ -44,7 +48,9 @@ namespace KOProject
         public ObservableCollection<ListSite> Products
         {
             get { return products; }
-            set { products = value;
+            set
+            {
+                products = value;
                 PropertyChange(nameof(Products));
             }
         }
@@ -68,7 +74,7 @@ namespace KOProject
                 {
                     ListSite element = new ListSite();
                     element.Link = link.SelectSingleNode("a").GetAttributeValue("href", string.Empty);
-                    element.Image = link.SelectSingleNode("a/div/img").GetAttributeValue("src", string.Empty).Insert(0,"http:");
+                    element.Image = link.SelectSingleNode("a/div/img").GetAttributeValue("src", string.Empty).Insert(0, "http:");
                     element.Name = link.SelectSingleNode("a/div/img").GetAttributeValue("alt", string.Empty);
                     element.Price = link.SelectSingleNode("a/div/div/div/meta").GetAttributeValue("content", string.Empty);
 
@@ -80,15 +86,15 @@ namespace KOProject
             {
 
             }
-            
-            
+
+
         }
         private void PropertyChange(string arg)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(arg));
         }
 
-        public void Store (string link)
+        public void Store(string link)
         {
             Process.Start(link);
         }

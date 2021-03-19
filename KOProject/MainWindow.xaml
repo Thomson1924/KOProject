@@ -11,7 +11,7 @@
             <TextBox x:Name="tb_SearchBox" Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
             <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="372,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
             <ComboBox HorizontalAlignment="Left" Margin="215,10,0,0" Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="152" Height="25">
-                <ComboBoxItem>.</ComboBoxItem>
+                <ComboBoxItem Height="20">              </ComboBoxItem>
                 <ComboBoxItem>Biznes</ComboBoxItem>
                 <ComboBoxItem>Delikatesy</ComboBoxItem>
                 <ComboBoxItem>Dla Dzieci</ComboBoxItem>
