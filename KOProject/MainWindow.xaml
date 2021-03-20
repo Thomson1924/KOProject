@@ -5,12 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KOProject"
         mc:Ignorable="d"
-        Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
+        Title="Wyszukiwarka KO" Height="768" Width="1366" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45">
-            <TextBox x:Name="tb_SearchBox" Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
-            <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="372,10,0,0" VerticalAlignment="Top" Width="100" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
-            <ComboBox HorizontalAlignment="Left" Margin="215,10,0,0" Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="152" Height="25">
+            <TextBox x:Name="tb_SearchBox" 
+                     Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     TextAlignment="Left" 
+                     HorizontalAlignment="Left" 
+                     Height="25" 
+                     Margin="10,10,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="200" 
+                     FontSize="14" 
+                     MaxLines="1" 
+                     IsUndoEnabled="True" 
+                     AcceptsTab="True" 
+                     TextOptions.TextFormattingMode="Display"/>
+            <Button x:Name="bt_Search" 
+                    Content="Wyszukaj" 
+                    HorizontalAlignment="Left" 
+                    Margin="372,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="100" 
+                    Height="25" 
+                    Command="{Binding SearchCommand}" 
+                    CommandParameter="{Binding KeyWord}"/>
+            <ComboBox HorizontalAlignment="Left" 
+                      Margin="215,10,0,0" 
+                      Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" 
+                      VerticalAlignment="Top" 
+                      Width="152" 
+                      Height="25">
                 <ComboBoxItem Height="20">              </ComboBoxItem>
                 <ComboBoxItem>Biznes</ComboBoxItem>
                 <ComboBoxItem>Delikatesy</ComboBoxItem>
@@ -44,10 +69,10 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Name}" Grid.Column="0"/>
-                            <Image Source="{Binding Image}" Grid.Column="2"/>
+                            <Image Source="{Binding Image}" Width="300" Height="300" Grid.Column="1"/>
                             <Button  Content="Przejdź!"
                                      HorizontalAlignment="Right" 
                                      VerticalAlignment="Top" 
