@@ -79,6 +79,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\GoToStoreCommand.cs" />
     <Compile Include="Commands\SearchProductCommand.cs" />
+    <Compile Include="Commands\ViewHistorySearchCommand.cs" />
     <Compile Include="ListSite.cs" />
     <Compile Include="ListSiteContext.cs" />
     <Compile Include="MainWindowViewModel.cs" />
