@@ -97,9 +97,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202103201624509_First.cs" />
-    <Compile Include="Migrations\202103201624509_First.designer.cs">
-      <DependentUpon>202103201624509_First.cs</DependentUpon>
+    <Compile Include="Migrations\202103211204316_First.cs" />
+    <Compile Include="Migrations\202103211204316_First.designer.cs">
+      <DependentUpon>202103211204316_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -115,8 +115,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202103201624509_First.resx">
-      <DependentUpon>202103201624509_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103211204316_First.resx">
+      <DependentUpon>202103211204316_First.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
