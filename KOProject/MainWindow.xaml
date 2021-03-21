@@ -60,11 +60,12 @@
                 <ComboBoxItem>Telefony i akcesoria</ComboBoxItem>
                 <ComboBoxItem>Zdrowie</ComboBoxItem>
             </ComboBox>
-            <Button Content="Button" 
+            <Button Content="Historia" 
                     HorizontalAlignment="Left" 
-                    Margin="504,7,0,0" 
+                    Margin="499,10,0,0" 
                     VerticalAlignment="Top" 
-                    Width="75"
+                    Width="100" 
+                    Height="25"
                     Command="{Binding HistoryCommand}" />
         </Grid>
         <Grid MinHeight="363" Margin="10,46,10,10">
