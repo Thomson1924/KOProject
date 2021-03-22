@@ -8,7 +8,7 @@
         Title="Wyszukiwarka KO" Height="768" Width="1366" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top"  Width="2600" Height="90" Background="#4a6572">
-            <TextBox x:Name="tb_SearchBox" 
+            <TextBox   x:Name="tb_SearchBox" 
                      Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                      TextAlignment="Left" 
                      HorizontalAlignment="Left" 
@@ -17,13 +17,17 @@
                      VerticalAlignment="Top" 
                      Width="200" 
                      FontSize="30" 
-                     
                      IsUndoEnabled="True" 
                      AcceptsTab="True" 
                      TextOptions.TextFormattingMode="Display"
                      FontFamily="Roboto"
                      Foreground="White"
-                     />
+                     BorderBrush="#FFF9AA33" 
+                     CaretBrush="#FFF9AA33" 
+                     SelectionBrush="#FFF9AA33" 
+                     Cursor="Arrow"
+                       />
+
             <Button x:Name="bt_Search" 
                     Content="WYSZUKAJ" 
                     HorizontalAlignment="Left" 
@@ -34,7 +38,9 @@
                     Command="{Binding SearchCommand}" 
                     CommandParameter="{Binding KeyWord}"
                     FontFamily="Roboto"  FontSize="20" 
-                    Background="#f9aa33" Foreground="Black" BorderBrush="#FFF9AA33"/>
+                    Background="#f9aa33"
+                    Foreground="Black"
+                    BorderBrush="#FFF9AA33" />
             <ComboBox HorizontalAlignment="Left" 
                       Margin="215,10,0,0" 
                       Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" 
@@ -43,7 +49,8 @@
                       Height="50"
                       FontFamily="Roboto"
                       FontSize="30"
-                      Foreground="White">
+                      Foreground="White"
+                      BorderBrush="#FFF9AA33">
                 <ComboBoxItem Height="20" Foreground="Black">              </ComboBoxItem>
                 <ComboBoxItem Foreground="Black">BIZNES</ComboBoxItem>
                 <ComboBoxItem Foreground="Black">DELIKATESY</ComboBoxItem>
@@ -77,7 +84,9 @@
                     Command="{Binding HistoryCommand}"
                     FontFamily="Roboto"
                     FontSize="20"
-                    Background="#f9aa33" Foreground="Black" BorderBrush="#FFF9AA33"
+                    Background="#f9aa33" 
+                    Foreground="Black" 
+                    BorderBrush="#FFF9AA33"
                     />
         </Grid>
         <Grid MinHeight="500" Margin="2,40,0,10">
@@ -102,7 +111,11 @@
                                      Grid.Column="2"
                                      Width="200"
                                      Height="50"
-                                     FontFamily="Roboto" FontSize="15" Background="#f9aa33" Foreground="Black" BorderBrush="#FFF9AA33"/>
+                                     FontFamily="Roboto" 
+                                     FontSize="15"
+                                     Background="#f9aa33" 
+                                     Foreground="Black"
+                                     BorderBrush="#FFF9AA33"/>
                             <TextBlock Text="{ Binding Price}" Grid.Column="1" Margin="100,100,100,100" Width="500" FontFamily="Roboto" FontSize="15" FontWeight="Medium" FontStyle="Italic"/>
                         </Grid>
                     </DataTemplate>
