@@ -88,6 +88,19 @@
                     Foreground="Black" 
                     BorderBrush="#FFF9AA33"
                     />
+            <Button x:Name="bt_Delete"
+                Content="USUŃ" 
+                HorizontalAlignment="Left" 
+                Margin="1030,20,0,0" 
+                VerticalAlignment="Top" 
+                Width="150" 
+                Height="50"
+                Command="{Binding SearchCommand}" 
+                CommandParameter="{Binding KeyWord}"
+                FontFamily="Roboto"  FontSize="20" 
+                Background="#f9aa33"
+                Foreground="Black"
+                BorderBrush="#FFF9AA33" Click="bt_Delete_Click" />
         </Grid>
         <Grid MinHeight="500" Margin="2,40,0,10">
             <ListBox ItemsSource="{Binding Products}" Margin="0,50,0,0" Background="LightGray">
