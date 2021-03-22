@@ -6,141 +6,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KOProject"
         mc:Ignorable="d"
-        Title="Wyszukiwarka KO" Height="768" Width="1366" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
+        Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
     <Grid>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top"  Width="2600" Height="90" Background="#4a6572">
-            <TextBox   x:Name="tb_SearchBox" 
-                     Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                     TextAlignment="Left" 
-                     HorizontalAlignment="Left" 
-                     Height="50" 
-                     Margin="10,10,0,0" 
-                     VerticalAlignment="Top" 
-                     Width="200" 
-                     FontSize="30" 
-                     IsUndoEnabled="True" 
-                     AcceptsTab="True" 
-                     TextOptions.TextFormattingMode="Display"
-                     FontFamily="Roboto"
-                     Foreground="White"
-                     BorderBrush="#FFF9AA33" 
-                     CaretBrush="#FFF9AA33" 
-                     SelectionBrush="#FFF9AA33" 
-                     Cursor="Arrow"
-                       />
-
-            <Button x:Name="bt_Search" 
-                    Content="WYSZUKAJ" 
-                    HorizontalAlignment="Left" 
-                    Margin="500,20,0,0" 
-                    VerticalAlignment="Top" 
-                     Width="150" 
-                    Height="50"
-                    Command="{Binding SearchCommand}" 
-                    CommandParameter="{Binding KeyWord}"
-                    FontFamily="Roboto"  FontSize="20" 
-                    Background="#f9aa33"
-                    Foreground="Black"
-                    BorderBrush="#FFF9AA33" />
-            <ComboBox HorizontalAlignment="Left" 
-                      Margin="215,10,0,0" 
-                      Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" 
-                      VerticalAlignment="Top" 
-                      Width="250" 
-                      Height="50"
-                      FontFamily="Roboto"
-                      FontSize="30"
-                      Foreground="White"
-                      BorderBrush="#FFF9AA33">
-                <ComboBoxItem Height="20" Foreground="Black">              </ComboBoxItem>
-                <ComboBoxItem Foreground="Black">BIZNES</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">DELIKATESY</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">DLA DZIECI</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">DOM I OGRÓD</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">EROTYKA</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">FILMY</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">FOTOGRAFIA I OPTYKA</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">GRY I KONSOLE</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">INNE</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">KOMPUTERY</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">KOSMETYKI</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">KSIĄŻKI</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">MODA I STYL</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">MOTORYZACJA</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">MUZYKA</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">NARZĘDZIA</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">PREZENTY</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">SPORT I HOBBY</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">SPRZĘT AGD</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">SPRZĘT RTV</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">TELEFONY I AKCESORIA</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">ZDROWIE</ComboBoxItem>
-            </ComboBox>
-            <Button Content="HISTORIA" 
-                    HorizontalAlignment="Left" 
-                    Margin="750,20,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="150" 
-                    Height="50"
-                    Command="{Binding HistoryCommand}"
-                    FontFamily="Roboto"
-                    FontSize="20"
-                    Background="#f9aa33" 
-                    Foreground="Black" 
-                    BorderBrush="#FFF9AA33"
-                    />
-            <Button x:Name="bt_Delete"
-                Content="USUŃ" 
-                HorizontalAlignment="Left" 
-                Margin="1030,20,0,0" 
-                VerticalAlignment="Top" 
-                Width="150" 
-                Height="50"
-                Command="{Binding SearchCommand}" 
-                CommandParameter="{Binding KeyWord}"
-                FontFamily="Roboto"  FontSize="20" 
-                Background="#f9aa33"
-                Foreground="Black"
-                BorderBrush="#FFF9AA33" Click="bt_Delete_Click" />
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45">
+            <TextBox Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
+            <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
         </Grid>
-
-        <Grid MinHeight="500" Margin="2,40,0,10">
-            <ListBox ItemsSource="{Binding Products}" Margin="0,50,0,0" Background="LightGray">
-                <ListBox.ItemTemplate >
-
         <Grid MinHeight="363" Margin="10,46,10,10" >
             <ListBox ItemsSource="{Binding Products}" Margin="0,37,0,0" >
 
                 <ListBox.ItemTemplate>
-
-
-                                <ColumnDefinition Width="4*"/>
-                                <ColumnDefinition Width="9*"/>
-                                <ColumnDefinition Width="6*"/>
-                                <ColumnDefinition/>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Name}" Grid.Column="0" Width="750" Margin="0,100" FontFamily="Roboto" FontSize="14" FontWeight="Medium" FontStyle="Italic"/>
-                            <Image Source="{Binding Image}" Width="200" Height="200" Grid.Column="1" Margin="0,50" Opacity="0.7"/>
-                            <Button  Content="PRZEJDŹ"
+                            <Grid.RowDefinitions>
+
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Name}"/>
+                            <Image Source="{Binding Image}" Grid.Column="1"/>
+                            <Button  Content="Przejdź!"
                                      HorizontalAlignment="Right" 
-                                     VerticalAlignment="Top" 
-                                     Margin="0,100,0,0"
+                                     VerticalAlignment="Bottom" 
                                      Command="{Binding Path=DataContext.GoToStore , RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
-                                     CommandParameter="{Binding Link}" 
-                                     Grid.Column="2"
-                                     Width="200"
-                                     Height="50"
-                                     FontFamily="Roboto" 
-                                     FontSize="15"
-                                     Background="#f9aa33" 
-                                     Foreground="Black"
-                                     BorderBrush="#FFF9AA33"/>
-                            <TextBlock Text="{ Binding Price}" Grid.Column="1" Margin="100,100,100,100" Width="500" FontFamily="Roboto" FontSize="15" FontWeight="Medium" FontStyle="Italic"/>
+                                     CommandParameter="{Binding Link}"
+                                     Width="75"
+                                     Height="25"
+                                     Grid.Column="2"/>
+                            <TextBlock Text="{Binding Price}" Grid.Column="1" FontSize="16"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="ZNALEZIONE PRODUKTY" VerticalAlignment="Top" Width="360" Height="22" FontSize="20" FontWeight="Medium"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Znalezione Produkty:" VerticalAlignment="Top" Width="181" Height="22" FontSize="16"/>
         </Grid>
     </Grid>
 </Window>

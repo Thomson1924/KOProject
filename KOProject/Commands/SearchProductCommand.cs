@@ -24,8 +24,7 @@ namespace KOProject.Commands
 
         public void Execute(object parameter)
         { 
-
-            mainWindowViewModel.ScrapList($"http://www.nokaut.pl/{mainWindowViewModel.Category}/produkt:{parameter}");
+            mainWindowViewModel.ScrapList($"http://www.nokaut.pl/Telefon/produkt:{parameter}");
             mainWindowViewModel.SaveToDataBase(mainWindowViewModel.Products);
         }
     }
