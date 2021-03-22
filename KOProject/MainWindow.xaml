@@ -6,27 +6,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KOProject"
         mc:Ignorable="d"
-
-        Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800" ResizeMode="CanMinimize">
+        Title="Wyszukiwarka KO" Height="450" Width="800" MinHeight="450" MinWidth="800" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Width="790" Height="45">
-            <TextBox Text="{Binding KeyWord, Mode=TwoWay}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
-            <Button   x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
-            <Button x:Name="bt_GoToStore_Copy" Content="Przejdź!" HorizontalAlignment="Left" Margin="327,10,0,0" VerticalAlignment="Top" Width="62" Height="27"/>
+            <TextBox Text="{Binding KeyWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontSize="14" MaxLines="1" IsUndoEnabled="True" AcceptsTab="True" TextOptions.TextFormattingMode="Display"/>
+            <Button x:Name="bt_Search" Content="Wyszukaj" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Command="{Binding SearchCommand}" CommandParameter="{Binding KeyWord}"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" MinHeight="363" Margin="10,46,0,0" VerticalAlignment="Top" Height="338" MinWidth="296" >
-            <ListBox ItemsSource="{Binding Products}" HorizontalAlignment="Center" Width="762" Margin="0,37,-466,10">
+        <Grid MinHeight="363" Margin="10,46,10,10" >
+            <ListBox ItemsSource="{Binding Products}" Margin="0,37,0,0" >
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.3*"/>
-                                <ColumnDefinition Width="0.7*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Name}" />
+                            <Grid.RowDefinitions>
+
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Name}"/>
                             <Image Source="{Binding Image}" Grid.Column="1"/>
-                            <TextBlock Text="{Binding Price}" Grid.Column="2" />
-                            
+                            <Button  Content="Przejdź!"
+                                     HorizontalAlignment="Right" 
+                                     VerticalAlignment="Bottom" 
+                                     Command="{Binding Path=DataContext.GoToStore , RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+                                     CommandParameter="{Binding Link}"
+                                     Width="75"
+                                     Height="25"
+                                     Grid.Column="2"/>
+                            <TextBlock Text="{Binding Price}" Grid.Column="1" FontSize="16"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

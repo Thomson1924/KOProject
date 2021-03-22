@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 
 namespace KOProject
 {
-    public class SearchEngine
+    class ListSiteContext :DbContext
     {
-        
-
-        
+        public DbSet<ListSite> ListSites { get; set; }
     }
-    
 }

@@ -15,6 +15,7 @@ namespace KOProject
     {
 
         public ICommand SearchCommand { get; set; }
+        public ICommand GoToStore { get; set; }
         private ObservableCollection<ListSite> products;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,6 +41,7 @@ namespace KOProject
         public MainWindowViewModel()
         {
             SearchCommand = new SearchProductCommand(this);
+            GoToStore = new GoToStoreCommand(this);
         }
         public void ScrapList(string html)
         {
@@ -70,9 +72,32 @@ namespace KOProject
             
             
         }
+
+        public void SaveToDataBase(ObservableCollection<ListSite> listSites)
+        {
+            foreach (var item in listSites)
+            {
+                var products = new List<ListSite>
+                {
+                    new ListSite { Image=item.Image, Link=item.Link, Name=item.Name, Price =item.Price }
+                };
+
+                    using (ListSiteContext context = new ListSiteContext())
+                    {
+                        context.ListSites.AddRange(products);
+                        context.SaveChanges();
+                    }
+            }
+        }
+
         private void PropertyChange(string arg)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(arg));
+        }
+
+        public void Store (string link)
+        {
+
         }
     }
 }

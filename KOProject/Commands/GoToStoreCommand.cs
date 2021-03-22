@@ -7,13 +7,13 @@ using System.Windows.Input;
 
 namespace KOProject.Commands
 {
-    public class SearchProductCommand : ICommand
+    public class GoToStoreCommand : ICommand
     {
         private readonly MainWindowViewModel mainWindowViewModel;
 
         public event EventHandler CanExecuteChanged;
 
-        public SearchProductCommand(MainWindowViewModel mainWindowViewModel)
+        public GoToStoreCommand(MainWindowViewModel mainWindowViewModel)
         {
             this.mainWindowViewModel = mainWindowViewModel;
         }
@@ -23,9 +23,8 @@ namespace KOProject.Commands
         }
 
         public void Execute(object parameter)
-        { 
-            mainWindowViewModel.ScrapList($"http://www.nokaut.pl/Telefon/produkt:{parameter}");
-            mainWindowViewModel.SaveToDataBase(mainWindowViewModel.Products);
+        {
+            mainWindowViewModel.Store(parameter.ToString());
         }
     }
 }
