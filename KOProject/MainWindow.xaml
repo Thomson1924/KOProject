@@ -34,7 +34,7 @@
                     Command="{Binding SearchCommand}" 
                     CommandParameter="{Binding KeyWord}"
                     FontFamily="Roboto"  FontSize="20" 
-                    Background="#f9aa33" Foreground="Black"/>
+                    Background="#f9aa33" Foreground="Black" BorderBrush="#FFF9AA33"/>
             <ComboBox HorizontalAlignment="Left" 
                       Margin="215,10,0,0" 
                       Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" 
@@ -44,29 +44,29 @@
                       FontFamily="Roboto"
                       FontSize="30"
                       Foreground="White">
-                <ComboBoxItem Height="20">              </ComboBoxItem>
-                <ComboBoxItem>BIZNES</ComboBoxItem>
-                <ComboBoxItem>DELIKATESY</ComboBoxItem>
-                <ComboBoxItem>DLA DZIECI</ComboBoxItem>
-                <ComboBoxItem>DOM I OGRÓD</ComboBoxItem>
-                <ComboBoxItem>EROTYKA</ComboBoxItem>
-                <ComboBoxItem>FILMY</ComboBoxItem>
-                <ComboBoxItem>FOTOGRAFIA I OPTYKA</ComboBoxItem>
-                <ComboBoxItem>GRY I KONSOLE</ComboBoxItem>
-                <ComboBoxItem>INNE</ComboBoxItem>
-                <ComboBoxItem>KOMPUTERY</ComboBoxItem>
-                <ComboBoxItem>KOSMETYKI</ComboBoxItem>
-                <ComboBoxItem>KSIĄŻKI</ComboBoxItem>
-                <ComboBoxItem>MODA I STYL</ComboBoxItem>
-                <ComboBoxItem>MOTORYZACJA</ComboBoxItem>
-                <ComboBoxItem>MUZYKA</ComboBoxItem>
-                <ComboBoxItem>NARZĘDZIA</ComboBoxItem>
-                <ComboBoxItem>PREZENTY</ComboBoxItem>
-                <ComboBoxItem>SPORT I HOBBY</ComboBoxItem>
-                <ComboBoxItem>SPRZĘT AGD</ComboBoxItem>
-                <ComboBoxItem>SPRZĘT RTV</ComboBoxItem>
-                <ComboBoxItem>TELEFONY I AKCESORIA</ComboBoxItem>
-                <ComboBoxItem>ZDROWIE</ComboBoxItem>
+                <ComboBoxItem Height="20" Foreground="Black">              </ComboBoxItem>
+                <ComboBoxItem Foreground="Black">BIZNES</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">DELIKATESY</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">DLA DZIECI</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">DOM I OGRÓD</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">EROTYKA</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">FILMY</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">FOTOGRAFIA I OPTYKA</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">GRY I KONSOLE</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">INNE</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">KOMPUTERY</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">KOSMETYKI</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">KSIĄŻKI</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">MODA I STYL</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">MOTORYZACJA</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">MUZYKA</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">NARZĘDZIA</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">PREZENTY</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">SPORT I HOBBY</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">SPRZĘT AGD</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">SPRZĘT RTV</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">TELEFONY I AKCESORIA</ComboBoxItem>
+                <ComboBoxItem Foreground="Black">ZDROWIE</ComboBoxItem>
             </ComboBox>
             <Button Content="HISTORIA" 
                     HorizontalAlignment="Left" 
@@ -77,7 +77,7 @@
                     Command="{Binding HistoryCommand}"
                     FontFamily="Roboto"
                     FontSize="20"
-                    Background="#f9aa33" Foreground="Black"
+                    Background="#f9aa33" Foreground="Black" BorderBrush="#FFF9AA33"
                     />
         </Grid>
         <Grid MinHeight="500" Margin="2,40,0,10">
@@ -102,7 +102,7 @@
                                      Grid.Column="2"
                                      Width="200"
                                      Height="50"
-                                     FontFamily="Roboto" FontSize="15" Background="#f9aa33" Foreground="Black"/>
+                                     FontFamily="Roboto" FontSize="15" Background="#f9aa33" Foreground="Black" BorderBrush="#FFF9AA33"/>
                             <TextBlock Text="{ Binding Price}" Grid.Column="1" Margin="100,100,100,100" Width="500" FontFamily="Roboto" FontSize="15" FontWeight="Medium" FontStyle="Italic"/>
                         </Grid>
                     </DataTemplate>
