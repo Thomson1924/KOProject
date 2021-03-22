@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,10 @@ namespace KOProject
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-
+       
         public ICommand SearchCommand { get; set; }
         public ICommand GoToStore { get; set; }
+        public ICommand HistoryCommand { get; set; }
         private ObservableCollection<ListSite> products;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,16 +26,32 @@ namespace KOProject
         public string KeyWord
         {
             get { return keyWord; }
-            set { keyWord = value;
+            set
+            {
+                keyWord = value;
                 PropertyChange(nameof(KeyWord));
             }
         }
+        private string category;
+
+        public string Category
+        {
+            get { return category; }
+            set
+            {
+                category = value;
+                PropertyChange(nameof(Category));
+            }
+        }
+
 
 
         public ObservableCollection<ListSite> Products
         {
             get { return products; }
-            set { products = value;
+            set
+            {
+                products = value;
                 PropertyChange(nameof(Products));
             }
         }
@@ -42,6 +60,7 @@ namespace KOProject
         {
             SearchCommand = new SearchProductCommand(this);
             GoToStore = new GoToStoreCommand(this);
+            HistoryCommand = new ViewHistorySearchCommand(this);
         }
         public void ScrapList(string html)
         {
@@ -57,7 +76,7 @@ namespace KOProject
                 {
                     ListSite element = new ListSite();
                     element.Link = link.SelectSingleNode("a").GetAttributeValue("href", string.Empty);
-                    element.Image = link.SelectSingleNode("a/div/img").GetAttributeValue("src", string.Empty).Insert(0,"http:");
+                    element.Image = link.SelectSingleNode("a/div/img").GetAttributeValue("src", string.Empty).Insert(0, "http:");
                     element.Name = link.SelectSingleNode("a/div/img").GetAttributeValue("alt", string.Empty);
                     element.Price = link.SelectSingleNode("a/div/div/div/meta").GetAttributeValue("content", string.Empty);
 
@@ -69,8 +88,46 @@ namespace KOProject
             {
 
             }
-            
-            
+
+
+        }
+
+        public void SaveToDataBase(ObservableCollection<ListSite> listSites)
+        {
+            foreach (var item in listSites)
+            {
+                var products = new List<ListSite>
+                {
+                    new ListSite { Image=item.Image, Link=item.Link, Name=item.Name, Price =item.Price }
+                };
+
+                using (ListSiteContext context = new ListSiteContext())
+                {
+                    context.ListSites.AddRange(products);
+                    context.SaveChanges();     
+                }
+            }
+        }
+
+        public void ViewHistorySearch()
+        {
+            List<ListSite> historyProducts = new List<ListSite>();
+
+            using (ListSiteContext dbContext = new ListSiteContext())
+            {
+                foreach(var col in dbContext.ListSites.ToList())
+                {
+                    ListSite element = new ListSite();
+                    element.ListSiteID = col.ListSiteID;
+                    element.Image = col.Image;
+                    element.Link = col.Link;
+                    element.Name = col.Name;
+                    element.Price = col.Price;
+
+                    historyProducts.Add(element);
+                }
+            }
+            Products = new ObservableCollection<ListSite>(historyProducts);
         }
 
         public void SaveToDataBase(ObservableCollection<ListSite> listSites)
@@ -90,14 +147,15 @@ namespace KOProject
             }
         }
 
+
         private void PropertyChange(string arg)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(arg));
         }
 
-        public void Store (string link)
+        public void Store(string link)
         {
-
+            Process.Start(link);
         }
     }
 }
