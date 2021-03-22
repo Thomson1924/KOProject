@@ -339,3 +339,6 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /KOProject
+/KOProject/Content
+/KOProject/Scripts
+
