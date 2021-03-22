@@ -18,6 +18,8 @@ namespace KOProject
         public ICommand SearchCommand { get; set; }
         public ICommand GoToStore { get; set; }
         public ICommand HistoryCommand { get; set; }
+        public ICommand ClearHistoryCommand { get; set; }
+
         private ObservableCollection<ListSite> products;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -61,6 +63,7 @@ namespace KOProject
             SearchCommand = new SearchProductCommand(this);
             GoToStore = new GoToStoreCommand(this);
             HistoryCommand = new ViewHistorySearchCommand(this);
+            ClearHistoryCommand = new ClearHistorySearch(this);
         }
         public void ScrapList(string html)
         {
@@ -128,6 +131,18 @@ namespace KOProject
                 }
             }
             Products = new ObservableCollection<ListSite>(historyProducts);
+        }
+        public void ClearHistorySearch()
+        {
+            using (ListSiteContext dbContext = new ListSiteContext())
+            {
+                foreach (var col in dbContext.ListSites.ToList())
+                {
+                    var history = dbContext.ListSites.Single(p => p.ListSiteID == col.ListSiteID);
+                    dbContext.ListSites.Remove(history);
+                    dbContext.SaveChanges();
+                }
+            }
         }
 
         private void PropertyChange(string arg)
