@@ -24,15 +24,15 @@
                      Foreground="White"
                      BorderBrush="#FFF9AA33" 
                      CaretBrush="#FFF9AA33" 
-                     SelectionBrush="#FFF9AA33" 
-                     
+                     SelectionBrush="#FFF9AA33" />
+
 
             <Button x:Name="bt_Search" 
                     Content="WYSZUKAJ" 
                     HorizontalAlignment="Left" 
                     Margin="500,20,0,0" 
                     VerticalAlignment="Top" 
-                     Width="150" 
+                    Width="150" 
                     Height="50"
                     Command="{Binding SearchCommand}" 
                     CommandParameter="{Binding KeyWord}"
@@ -40,6 +40,7 @@
                     Background="#f9aa33"
                     Foreground="Black"
                     BorderBrush="#FFF9AA33"/>
+                
             <ComboBox HorizontalAlignment="Left" 
                       Margin="215,10,0,0" 
                       Text="{Binding Category, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" 
