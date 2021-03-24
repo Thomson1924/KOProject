@@ -7,13 +7,13 @@ using System.Windows.Input;
 
 namespace KOProject.Commands
 {
-    public class SearchProductCommand : ICommand
+    class ClearHistorySearch : ICommand
     {
         private readonly MainWindowViewModel mainWindowViewModel;
 
         public event EventHandler CanExecuteChanged;
 
-        public SearchProductCommand(MainWindowViewModel mainWindowViewModel)
+        public ClearHistorySearch(MainWindowViewModel mainWindowViewModel)
         {
             this.mainWindowViewModel = mainWindowViewModel;
         }
@@ -23,10 +23,10 @@ namespace KOProject.Commands
         }
 
         public void Execute(object parameter)
-        { 
-
-            mainWindowViewModel.ScrapList($"http://www.nokaut.pl/{mainWindowViewModel.Category}/produkt:{parameter}");
-            mainWindowViewModel.SaveToDataBase(mainWindowViewModel.Products);
+        {
+            mainWindowViewModel.ClearHistorySearch();
+            mainWindowViewModel.ViewHistorySearch();
         }
+        
     }
 }

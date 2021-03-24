@@ -145,6 +145,7 @@ namespace KOProject
             }
         }
 
+
         private void PropertyChange(string arg)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(arg));
